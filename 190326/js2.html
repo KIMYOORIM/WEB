@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type = "text" id = "inputText">
+    <input type = "text" id = "yoorimText">
+    <input type = "button" value="버튼1" id = "button1">
+
+  </body>
+  <script>
+document.getElementById('button1').addEventListener('click', function(){
+  var number1 = document.getElementById('inputText').value;
+  var number2 = document.getElementById('yoorimText').value;
+
+  var answer = Number(number1) + Number(number2);
+
+  console.log(answer);
+  if (answer >= 10) {
+    alert ("10 이상")
+  }
+  else{
+    alert("10 미만")
+  }
+});
+
+
+</script>
+
+</html>
