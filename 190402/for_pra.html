@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+
+<body>
+
+  <span id="numberArea"></span>
+  <span id="numberArea2"></span>
+
+  <script>
+
+    var numberText = "";
+    var a = 0;
+    for (var i = 1; i <= 100; i++) {
+      numberText += i + " ";
+    if(i % 10 == a){
+        numberText += "<br>"
+      }
+    }
+
+    var numberText2 = "";
+    for(var i = 0; i <10; i++){
+    for(var j =1; j<11;j++){
+    numberText2 += i*10 + j + " "
+  }
+    numberText2 += '<br>';
+  }
+    document.getElementById("numberArea").innerHTML = numberText;
+document.getElementById("numberArea2").innerHTML = numberText2;
+  </script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    id : <input type = "text" id = "inputText"><br>
+
+    password : <input type = "text" id = "yoorimText"><br>
+
+  <input type = "button" value="로그인" id = "button2">
+  <script>
+  document.getElementById('button2').addEventListener('click', function(){
+  var loginId2 = document.getElementById('inputText').value;
+  var loginId2 = document.getElementById('yoorimText').value;
+
+  if(inputText =="p" && yoorimText == 1){
+
+  console.log("로그인 성공");
+  }else{
+  console.log("로그인 실패");
+  }
+  });
+
+</script>
+</body>
+</html>

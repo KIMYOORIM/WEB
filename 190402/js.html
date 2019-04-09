@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    id : <input type = "text" id = "inputText"><br>
+
+    password : <input type = "text" id = "yoorimText"><br>
+
+  <input type = "button" value="로그인" id = "button2">
+
+  </body>
+  <script>
+  document.getElementById('button2').addEventListener('click', function(){
+    var id1 = document.getElementById('inputText').value;
+    var pw1 = document.getElementById('yoorimText').value;
+
+    console.log();
+    if (id1 == "polytech" && pw1 == 12345678) {
+      alert ("로그인 성공")
+    }
+    else{
+      alert("로그인 실패")
+    }
+  });
+
+</script>
+
+</html>
