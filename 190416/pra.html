@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+
+<body>
+
+
+<input type = "text" id = "yoorimText">
+<input type = "button" value="구구단" id = "button2"><br>
+<span id="numberArea"></span>
+  <script>
+  document.getElementById('button2').addEventListener('click',function(){
+  var numberText ="";
+  var num = document.getElementById('yoorimText').value;
+
+  for(var i = 1; i < 10; i++){
+  numberText = numberText + num + "*" + i + "=" + num * i+'<br>';
+  }
+
+  document.getElementById("numberArea").innerHTML = numberText;
+});
+
+// var a = 0;
+//     for(i = 1; i < 10; i++){
+//
+//
+//     }
+//     document.getElementById("numberArea").innerHTML = numberText;
+// document.getElementById("numberArea2").innerHTML = numberText2;
+//   </script>
+</body>
+
+
+
+</html>

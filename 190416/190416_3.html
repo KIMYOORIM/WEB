@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+<input type="radio" name="radioBtn">
+<input type="radio" name="radioBtn">
+<input type="radio" name="radioBtn">
+<input type="radio" name="radioBtn">
+<input type="radio" name="radioBtn">
+<input type="radio" name="radioBtn">
+<input type="radio" name="radioBtn"><br>
+<input type="button" value="몇번째" id = "btn">
+
+<script>
+  document.getElementById('btn').addEventListener('click',function(){
+    var radios = document.getElementsByName('radioBtn');
+    console.log(radios);
+    for(var i = 0; i<radios.length;i++){
+      if(radios[i].checked ==true){
+        alert(i+1);
+}
+}
+    });
+
+// console.log(document.getElementByName('radioBtn'));
+
+
+  //라디오버튼 네개를 가져와서 네개 짜리 배열을 만들었잖아
+  // 라디오 객체를 생성하면 그안에 체크라는 속성이 있어
+  //찍어보면 찍힌 부분은 true , 아닌부분 false 가 찍힌다.
+
+
+  </script>
+</body>
+
+</html>

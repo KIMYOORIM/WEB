@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script>
+    var cars = []; //배열선언
+    var car1 = {}; //객체선언
+    var car2 = {};
+    car1.color = "red";
+    car1.weight = "500kg";
+    car1.number = 1234;
+    car1.kind = "소나타";
+    car1.accidentHistory = []; //개체속성도 배열이 될 수있다. 배열안에 객체가 들어갈 수있다 .
+    car1.accidentHistory[0] = '2011-03-01';
+    car1.accidentHistory[0] = '2013-04-16';
+    car2.name = "abc";
+    car2.abc = 123;
+
+    cars[0] = car1, cars[1] = car2;
+cars[2] = {
+  name : "abc",
+  age : 123
+}
+
+    console.log(cars);
+  </script>
+
+
+</body>
+
+</html>
