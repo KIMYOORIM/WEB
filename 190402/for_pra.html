@@ -13,7 +13,8 @@
   <span id="numberArea2"></span>
 
   <script>
-
+// 1부터 100까지 출력할껀데 10단위로 개행해서 출력한다.
+// 개행도 문자니까 숫자를 문자로 쌓아준다.
     var numberText = "";
     var a = 0;
     for (var i = 1; i <= 100; i++) {
@@ -23,6 +24,14 @@
       }
     }
 
+    // var numberText = "";
+    // for (var i = 1; i < 101; i++) {
+    //   numberText = numberText + i + " ";
+    //   if (i % 10 == 0) {
+    //     numberText = numberText + "<br>"
+    //   }
+    // }
+// 이중포문 사용. 
     var numberText2 = "";
     for(var i = 0; i <10; i++){
     for(var j =1; j<11;j++){

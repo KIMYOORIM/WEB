@@ -5,7 +5,7 @@ var server = http.createServer(app).listen(80);
 
 
 app.get('/yoorim', function (req,res) {
-  res.sendfile("369.html");
+  res.sendfile("del.html");
 });
 
 console.log("running33333");

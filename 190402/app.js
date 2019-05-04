@@ -4,7 +4,7 @@ var app = express();
 var server = http.createServer(app).listen(80);
 
 app.get('/yoorim', function (req,res) {
-  res.sendfile("gugudan.html");
+  res.sendfile("del.html");
 });
 
 

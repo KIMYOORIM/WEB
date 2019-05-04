@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <!-- 계산 버튼을 클릭하면
+    라디오에 체크된 값 x 가중치 입력값   =  3번까지의 계산값의 합 출력.  -->
+  1번 0
+  <input++ type="radio" name="loginType">1<input type="radio" name="loginType">2<input type="radio" name="loginType">3<input type="radio" name="loginType">4<input type="radio" name="loginType"> 가중치 <input type="text" id = "gigigi"><br> 2번 0<input type="radio" name="loginType1">1<input type="radio" name="loginType1">2
+    <input type="radio" name="loginType1">3<input type="radio" name="loginType1">4<input type="radio" name="loginType1"> 가중치 <input type="text" gigigi1><br> 3번 0<input type="radio" name="loginType2">1<input type="radio" name="loginType2">2<input type="radio"
+      name="loginType2">3<input type="radio" name="loginType2">4<input type="radio" name="loginType2"> 가중치 <input type="text" gigigi2><br>
+    <input
+      type="radio" name="loginType3">4
+      <input type="radio" name="loginType3"> 가중치 <input type="text"><br>
+      <br><br>
+      <span id="textArea"></span>
+      <br>
+      <input type="button" value="계산">
+
+      <script>
+        document.getElementById('button2').addEventListener('click', function() {
+
+var hehe = document.getElementsByName('loginType');
+var hehe1 = document.getElementsByName('loginType1');
+var hehe2 = document.getElementsByName('loginType2');
+
+
+var gugu = document.getElementById('gigigi').value;
+var gugu2 = document.getElementById('gigigi1').value;
+var gugu3 = document.getElementById('gigigi2').value;
+
+
+
+              var a = "";
+              for (int i = 0; i < loginType.length; i++) {
+                if (loginType[i].checked == true) {
+                  a += loginType[i];
+                }
+              }
+
+              var a1 = "";
+              for (int i = 0; i < loginType1.length; i++) {
+                if (loginType1[i].checked == true) {
+                  a += loginType1[i];
+                }
+              }
+              var a2 = "";
+              for (int i = 0; i < loginType2.length; i++) {
+                if (loginType2[i].checked == true) {
+                  a += loginType2[i];
+                }
+              }
+
+
+var totalScore = (a * hehe) + (a1 * hehe1) + (a2 + hehe2);
+
+document.getElementById('textArea').innerHTML = '${a} * ${hehe} + ${a1} * ${hehe1} + $(a2) * ${hehe2} = totalScore';
+
+
+
+
+
+
+
+
+})
+      </script>
+
+
+
+
+
+</body>
+
+</html>

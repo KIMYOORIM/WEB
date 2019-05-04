@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" <head>
 <meta charset="utf-8">
-<title>김유림</title>
+<title>김유림</title> <!--파일 목록에 띄울 이름-->
 </head>
 
 <body>
   <center>
-    <font size="30" color="blue">
+    <font size="30" color="blue"> <!--클자크기와 색지정-->
       hello world <br><br>
     </font>
   </center><br>
   <!-- 여기는 아이디를 입력하는 곳 -->
-  ID : <input type="text" placeholder="아이디를 입력하세요">
+  ID : <input type="text" placeholder="아이디를 입력하세요"> <!--텍스트를 넣을 수 있는 창생성, placeholder-텍스트창에 베이스로 띄울 글자-->
   <br><br> PASS : <input type="password" placeholder="비밀번호를 입력하세요">
-  <br><br>안심로그인<input type="radio" name="loginType" checked> 그냥로그인
+  <br><br>안심로그인<input type="radio" name="loginType" checked> 그냥로그인 <!--radio 동그라미버튼생성 checked 기본적으로 체크되어생성됨-->
   <input type="radio" name="loginType">
   <br><br> 사과
-  <input type="radio" name="fruit"> 포도
+  <input type="radio" name="fruit"> 포도 <!--name이 같은 애들끼리 한 묶음으로 여러개중 하나만 선택할 수 있게 함 -->
   <input type="radio" name="fruit" checked> 파인애플
   <input type="radio" name="fruit">
-  <br><br>
-  <input type="button" value="로그인">
+  <br><br> <!--줄바꿈 -->
+  <input type="button" value="로그인"> <!--버튼 생성 volue에 버튼에보여질 이름-->
   <input type="button" value="취소">
-
-  <textarea name="name" rows="8" cols="80"></textarea>
-  <!--  -->텍스트창출력
+  <br><br>
+  <textarea name="name" rows="8" cols="80"></textarea>  <!--  텍스트창출력 -->
   <ol type="I">
     <li>1
     </li>
@@ -51,8 +50,8 @@
   </ui>
 
   <select>
-    <option value="" selected>2번</option>
-    <option value="">3번</option>
+    <option value="">2번</option> <!--선택옵션 생성 selected 입력시 기본 선택목록 설정 .-->
+    <option value="" selected>3번</option>
     <option value="">4번</option>
 </select>
 </body>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  이름 : <input type="text" id="num1"><br> html : <input type="text" id="num2"><br> javascript : <input type="text" id="num3"><br> css : <input type="text" id="num4"><br> nodejs : <input type="text" id="num5"><br> mysql : <input type="text" id="num6"><br>
+  <input type="button" value="성적입력" id="button1">
+  <input type="button" value="초기화" id="button2"><br><br>
+  <span id="resultArea"></span>
+  <!--이름, 점수출력공간-->
+  <br><br><br><br> 평균 : <span id="averageArea"></span><br>
+  <!--평균출력공간-->
+  최고점자 <span id="bestScore"></span>
+</body>
+
+<script>
+  var average = 0;
+  var bestAvg = 0;
+  var h = 0; //html
+  var j = 0; //java
+  var c = 0; //css
+  var n = 0; //node
+  var m = 0; //mysql
+  var studentCnt = 0; //여기까지교슈님
+  document.getElementById('button1').addEventListener("click", function() {
+    var name = document.getElementById('num1').value;
+    var html = Number(document.getElementById('num2').value);
+    h += html;
+    var javascript = Number(document.getElementById('num3').value);
+    j += javascript;
+    var css = Number(document.getElementById('num4').value);
+    c += css;
+    var nodejs = Number(document.getElementById('num5').value);
+    n += nodejs;
+    var mysql = Number(document.getElementById('num6').value);
+    m += mysql;
+    studentCnt++; //이거 안했어.
+
+    average = (html + javascript + css + nodejs + mysql) / 5;
+
+
+    if (studentCnt == 1) {
+      bestAvg = average;
+      document.getElementById('bestScore').innerHTML = `이름 : ${name} / 평균 : ${bestAvg}`;
+    } else if (average > bestAvg) {
+      bestAvg = average;
+      document.getElementById('bestScore').innerHTML = `이름 : ${name} / 평균 : ${bestAvg}`;
+    }
+
+    document.getElementById('resultArea').innerHTML += `이름 : ${name} / html : ${html}
+    / javascript : ${javascript} / css : ${css} / nodejs : ${nodejs} / mysql : ${mysql} /
+    ${name} 평균 : ${average} <br>`; //굳이 변수에 안넣어줘도 되는지 확인
+
+    var totalResult = 0;
+    var x = 0;
+    var totalh = 0;
+    var totalj = 0;
+    var totalc = 0;
+    var totaln = 0;
+    var totalm = 0;
+
+    totalh = h / studentCnt;
+    totalj = j / studentCnt;
+    totalc = c / studentCnt;
+    totaln = n / studentCnt;
+    totalm = m / studentCnt;
+    totalResult = (totalh + totalj + totalc + totaln + totalm) / 5;
+
+    var aveText = `평균 : html평균 : ${totalh} / javascript평균 : ${totalj} /
+    css평균 : ${totalc} / nodejs평균 : ${totaln} / mysql평균 : ${totalm} / 전체평균 : ${totalResult}<br>`;
+
+    document.getElementById('averageArea').innerHTML = aveText;
+
+    // `최고점자 이름 : ${} / 평균 : ${}`
+    document.getElementById('num1').value = "";
+    document.getElementById('num2').value = "";
+    document.getElementById('num3').value = "";
+    document.getElementById('num4').value = "";
+    document.getElementById('num5').value = "";
+    document.getElementById('num6').value = "";
+  });
+
+  document.getElementById('button2').addEventListener("click", function() {
+    h = 0; //html
+    j = 0; //java
+    c = 0; //css
+    n = 0; //node
+    m = 0; //mysql
+    studentCnt = 0; //여기까지교슈님
+    document.getElementById('resultArea').innerHTML = "";
+    document.getElementById('averageArea').innerHTML = "";
+    document.getElementById('bestScore').innerHTML = "";
+  });
+</script>
+
+
+
+
+</html>

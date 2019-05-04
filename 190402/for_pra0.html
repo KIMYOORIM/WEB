@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title></title>
 </head>
+<!--  원래는 빈공간으로 있어야하니까 버튼 눌렀을 때 innerhtml로 접근해서 바꿔주는거다. -->
 <body>
   <span id="loginFormArea"></span>
   <span id="formCreateArea"></span>
@@ -15,7 +16,7 @@
     document.getElementById('loginFormCreateBtn').addEventListener('click', function() {
         document.getElementById('loginFormArea').innerHTML = 'ID : <input type = " text"><br>PASSWORD : <input type = "text">' +
           '<br><input type = "button" value="로그인">';
-          document.getElementById('formCreateArea').innerHTML = '';
+          document.getElementById('formCreateArea').innerHTML = '';//로그인 양식 버튼을 없애준다.
 
 
     });

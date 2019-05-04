@@ -6,11 +6,11 @@ var server = http.createServer(app).listen(80);
 
 
 app.get('/yoorim15', function (req,res) {
-  res.sendfile("cssClass.html");
+  res.sendfile("js0.html");
 });
 
-app.get('/yoorim16', function (req,res) {
-  res.sendfile("js.html");
+app.get('/yoorim123', function (req,res) {
+  res.sendfile("del.html");
 });
 
 app.get('/yoorim17', function (req,res) {

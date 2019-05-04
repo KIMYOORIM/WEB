@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  숫자1 <input type="text" id="num1"><br>
+  숫자2 <input type="text" id="num2"><br>
+  <input type="button" value="더하기" id="button1">
+  <input type="button" value="빼기" id="button2">
+  <input type="button" value="곱하기" id="button3">
+  <input type="button" value="나누기" id="button4"><br><br>
+
+  <span id="numberArea"></span>
+  <br><br><br>횟수 : <span id = "cntArea"><span> <!-- 횟수 뒤 숫자 -->
+</body>
+<script>
+
+  var c = 0; //얘가 횟수 변수. click안에 넣으면 0으로 계속 초기화 되니까 밖에 해주어야한다.
+
+  document.getElementById('button3').addEventListener('click', function() {
+    var a = Number(document.getElementById('num1').value); //연산해야하니까 숫자로 가져오자.
+    var b = Number(document.getElementById('num2').value);
+
+    document.getElementById('numberArea').innerHTML += `${a} x ${b} = ${a*b}<br>`;
+    c++; // 버튼 누르는 횟수 올려주자
+    document.getElementById('cntArea').innerHTML = c;
+  });
+
+  document.getElementById('button1').addEventListener('click', function() {
+    var a = Number(document.getElementById('num1').value); //연산해야하니까 숫자로 가져오자.
+    var b = Number(document.getElementById('num2').value);
+
+    document.getElementById('numberArea').innerHTML += `${a} + ${b} = ${a+b}<br>`;
+    c++; // 버튼 누르는 횟수 올려주자
+    document.getElementById('cntArea').innerHTML = c;
+  });
+
+  document.getElementById('button2').addEventListener('click', function() {
+    var a = Number(document.getElementById('num1').value); //연산해야하니까 숫자로 가져오자.
+    var b = Number(document.getElementById('num2').value);
+
+    document.getElementById('numberArea').innerHTML += `${a} - ${b} = ${a-b}<br>`;
+    c++; // 버튼 누르는 횟수 올려주자
+    document.getElementById('cntArea').innerHTML = c;
+  });
+
+  document.getElementById('button2').addEventListener('click', function() {
+    var a = Number(document.getElementById('num1').value); //연산해야하니까 숫자로 가져오자.
+    var b = Number(document.getElementById('num2').value);
+
+    document.getElementById('numberArea').innerHTML += `${a} - ${b} = ${a-b}<br>`;
+    c++; // 버튼 누르는 횟수 올려주자
+    document.getElementById('cntArea').innerHTML = c;
+  });
+    document.getElementById('button4').addEventListener('click', function() {
+      var a = Number(document.getElementById('num1').value); //연산해야하니까 숫자로 가져오자.
+      var b = Number(document.getElementById('num2').value);
+
+      document.getElementById('numberArea').innerHTML += `${a} / ${b} = ${a/b}<br>`;
+      c++; // 버튼 누르는 횟수 올려주자
+      document.getElementById('cntArea').innerHTML = c;
+    });
+
+
+
+
+</script>
+
+</html>
