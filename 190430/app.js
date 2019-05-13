@@ -9,7 +9,7 @@ app.get('/yoorim', function(req, res) {
 });
 
 console.log("running33333");
-
+//여기부터 0430
 
 //sumform이라는라우터를 만들어 요청을 보내보겠다.
 //피라미터값을 편하게  url에 바로 입력하는개념이라고 생각해.
@@ -30,42 +30,55 @@ app.get('/sumform', function(req, res) {
 });
 
 
+
 app.get('/getItem', function(req, res) {
-  var userPrice = Number(req.query.inputPrice);
-  //요청을 받는거야 파라미터 담아와서 userPrice에 담아준거야
+  // console.log(req.query.a);
+  var userPrice = Number(req.query.price);
+  var resText = "구매불가"; //초기값 설정.
+  // console.log(resText)
   var priceTable = [{
       name: "item1",
       price: 1000
-    }, {
+    },
+    {
       name: "item2",
       price: 5000
-    }, { //가격정보야
-      nmae: "item3",
+    },
+    {
+      name: "item3",
       price: 10000
-    }, {
+    },
+    {
       name: "item4",
       price: 30000
-    }, {
-      name: "item5,price:50000"
+    },
+    {
+      name: "item5",
+      price: 50000
     },
     {
       name: "item6",
       price: 100000
-    }, {
+    },
+    {
       name: "item7",
       price: 500000
-    }
+    },
   ];
+  // console.log(priceTable);
+  // res.send("test"); //테스트용 요청에 값을 담아보낼 수 있다 querystring req.qurry 서버쪽은 그거를 뽑아오는것.
+  //  });
 
-  var resText = "구매불가";
   for (var i = 0; i < priceTable.length; i++) {
-    if (priceTable[i].price <= userPrice) {
-      resText = priceTable[i].name;
+    if (priceTable[i].price <= userPrice) { //.으로 속성값에 접근
+      // console.log(priceTable[i].price);
+      resText = priceTable[i].name; //맞는 가격에 따라 resText의 값ㅇ르 바꿔주는 것.
     }
   }
+  // console.log(resText);
   res.send(resText);
 });
 
 app.get('/itemForm', function(req, res) {
-      res.sendfile("item.html")
-    });
+  res.sendfile("item.html")
+});

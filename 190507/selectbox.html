@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+<select name = "" id = "selectBox1"> <!-- value그냥숫자로편하게숫자로입력-->
+  <option value = "현대">현대</option>
+  <option value = "기아">기아</option>
+  <option value = "쌍용">쌍용</option>
+  <option value = "벤츠">벤츠</option>
+  <option value = "bmw">bmw</option>
+      </select>
+<select name = "" id = "selectBox2">
+  <option value = "빨강">빨강</option>
+  <option value = "파랑">파랑</option>
+  <option value = "초록">초록</option>
+  <option value = "노랑">노랑</option>
+  <option value = "검정">검정</option>
+      </select>
+      <<input type="button" id='buyBtn' value="요청">
+      <br><span id="result"></span>
+
+      </body>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+    $("#buyBtn").click(function(){
+
+      $.ajax({
+        url:`http://localhost/getCarPrice`, //내가 받아온 파일위치로 보낼려면 그냥/getCarPrice로 써도된다.
+        data: {
+          selectBox1 : $("#selectBox1").val(),
+          selectBox2 : $("#selectBox2").val()
+        },
+        success:function(data){
+          // console.log(data)
+          $("#result").html(data+"만원");
+        }
+      });
+
+    });
+  </script>
+
+</html>

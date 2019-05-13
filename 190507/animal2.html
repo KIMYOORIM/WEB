@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <input type="text" id="text3">
+    <br><span id="result"></span>
+    <br><br>
+    <input type="button" value="return값으로" id="Btn1"><input type="button" value="실행부에서" id="Btn2">
+
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+    $("#Btn1").click(function(){
+      fun1();
+      });
+    $("#Btn2").click(function(){
+      fun2();
+      });
+
+    function fun1(){ //리턴있는 함수 $()도 리턴값으로 보낼 수 있다.
+      var num1 = $("#text1").val();
+      var num2 = $("#text2").val();
+      var num3 = $("#text3").val();
+      if(num1 > num2 && num1 > num3){
+        return num1
+      }else if (num2 > num1 && num2 > num3) {
+        return num2
+      }else {
+        return num3
+      }
+    }
+
+    function fun2(){ //리턴없는 함수
+      var num1 = $("#text1").val();
+      var num2 = $("#text2").val();
+      var num3 = $("#text3").val();
+      if(num1 > num2 && num1 > num3){
+        $("#result").html(num1);
+      }else if (num2 > num1 && num2 > num3) {
+        $("#result").html(num2);
+      }else {
+        $("#result").html(num3);
+      }
+    }
+
+
+
+
+  </script>
+</html>

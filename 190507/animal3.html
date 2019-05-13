@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- animal2 함수줄인거 -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="text1">
+    <input type="text" id="text2">
+    <input type="text" id="text3">
+    <br><span id="result"></span>
+    <br><br>
+    <input type="button" value="return값으로" id="Btn1"><input type="button" value="실행부에서" id="Btn2">
+
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+    $("#Btn1").click(function(){
+      var num1 = $("#text1").val();
+      var num2 = $("#text2").val();
+      var num3 = $("#text3").val();
+      $("#result").html(fun1(num1,num2,num3,1));
+
+      });
+
+    $("#Btn2").click(function(){
+      var num1 = $("#text1").val();
+      var num2 = $("#text2").val();
+      var num3 = $("#text3").val();
+      fun1(num1,num2,num3,2);
+      });
+
+
+    function fun1(num1,num2,num3,mode){
+      var biggest;
+      if(num1 > num2 && num1 > num3){
+        biggest = num1
+      }else if (num2 > num1 && num2 > num3) {
+        biggest = num2
+      }else {
+        biggest = num3
+      }
+
+    if(mode ==1){
+      return biggest;
+    }else if (mode ==2) {
+      $("#result").html(biggest);
+    }
+    }
+
+  </script>
+</html>

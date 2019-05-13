@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="text" id="price">
+    <input type="button" value="구매" id="buyBtn"><br>
+    <span id="result"></span>
+  </body>
+
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $("#buyBtn").click(function(){
+
+      // $.ajax({ //그냥형식이니까 외워
+      //   url:`http://localhost/getItem?inputPrice=${$("#price").val()}`, //get방식만 가능. post방식은 data에 넣어야해
+      //   data: {},
+      //   success:function(data){
+      //     // console.log(data) //자주 찍어봐
+      //     $("#result").html(data); //id를 가진애 #잊으면 안대
+      //   }
+      // });
+
+      $.ajax({
+        url:`http://localhost/getItem`,
+        data: {
+          price : $("#price").val()
+        },
+        success:function(data){
+          $("#result").html(data); //id를 가진애 #잊으면 안대
+        }
+      });
+    });
+  </script>
+</html>
