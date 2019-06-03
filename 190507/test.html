@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <br><span id="list"></span>
+
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+function numberClick(number){
+alert(number);
+  }
+
+
+for(var i = 0; i < 10;i++){
+  $("#list").append(`${i} <input type="button" value="click" onclick="numberClick(${i})"><br>`)
+}
+
+</script>
+
+</html>

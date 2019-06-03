@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <br><span id="list"></span>
+
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+//조회하기
+
+
+
+  function numberClick(number){
+alert(number);
+  }
+for(var i = 0; i < 10;i++){
+  $("#list").append(`${i} <input type="button" value="삭제" onclick="numberClick(${i})"><br>`)
+}
+</script>
+
+</html>
+<!-- 출력되는 db 뒤에 삭제버튼을 누르면 해당 데이터가 삭제 되게 하기  -->

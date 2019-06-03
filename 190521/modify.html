@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    제목 : <input type="text" id="title"><br>
+    내용 : <input type="text" id="text"><br>
+    <input type="button" value="수정" id="modifyBtn">
+    <input type="button" value="취소" id="cancelBtn">
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+//------------------------------------------수정------------------------------------------
+    $("#modifyBtn").click(function() {
+      $.ajax({
+        url: `/modifyOneNews`,
+        type: 'POST',
+        data: {
+          title: $("#title").val(),
+          text: $("#text").val(),
+          no : location.href.split("?")[1]
+        },
+        success: function(rep) {
+          location.href = "/form";
+        }
+      })
+    });
+//------------------------------------------취소---------------------------------------------
+    $("#ancelBtn").click(function() {
+          location.href = "/form";
+    });
+
+//------------------------------------------작성자 -------------------------------------
+
+  </script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- page3. aircraft list + update button2 -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  항공코드 / 항공기명 / 좌석수
+  <br>
+  <span id="aircraftlist"></span><br><br>
+  항공코드 : <input type="text" id="aircraftName"><br>
+  항공기명 : <input type="text" id="aircraftCode"><br>
+  좌석수 : <input type="text" id="seats"><br>
+  <input type="button" value="입력" id="insert">
+  <input type="button" value="취소" id="cancel">
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+  $("#cancel").click(function() {
+    location.href = "/flightform";
+  });
+//========================================== insertaircraft ==================================
+$("#insert").click(function() {
+  $.ajax({
+    url: `/insertaircraft`,
+    type: 'POST',
+    data: {
+      aircraftName : $("#aircraftName").val(),
+      aircraftCode : $("#aircraftCode").val(),
+      seats : $("#seats").val()
+    },
+    success: function(rep) {
+      console.log(rep)
+      location.href = "/flightform";
+    }
+  })
+});
+//========================================== selectaircraft ==================================
+$.ajax({
+  url: `/getaircraftList`,
+  type: 'get',
+  data: {
+  },
+  success: function(rep) {
+    for (var i = 0; i < rep.length; i++) {
+      $("#aircraftlist").append(`${rep[i].aircraftName} / ${rep[i].aircraftCode} / ${rep[i].seats}
+        <input type = "button" value = "삭제" onclick = "deleteaircraftWithNo(${rep[i].no})"><br>`);
+      console.log(rep)
+    }
+  }
+});
+//============================================== no별delete =============================================
+
+function deleteaircraftWithNo(no) {
+  $.ajax({
+    url: `/deleteaircraftWithNo`,
+    data: {
+      no: no
+    },
+    success: function(rep) {
+      location.href = "/flightform";
+    }
+  });
+}
+//============================================== 끝 =============================================
+
+</script>
+
+</html>

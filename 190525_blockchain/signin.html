@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- 회원가입 -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form name="submit" action="/signinform" method = "post">
+    <fieldset class="login_form">
+      <legend class="blind">회원가입</legend>
+    아이디<br>
+    <input type="text" name = "id" id = "id" placeholder="아이디"><br>
+    비밀번호<br>
+    <input type="password" name="userPwd" id = "pwd1" class="form-control" required /><br>
+    비밀번호 확인<br>
+    <input type="password" name="userPwd2" id = "pwd2" class="form-control" required /><br>
+    <div class="alert alert-success" id="alert-success">비밀번호가 일치합니다.</div>
+    <div class="alert alert-danger" id="alert-danger">비밀번호가 일치하지 않습니다.</div>
+    이름<br>
+    <input type="text" id = "name" placeholder="이름"><br>
+    생년월일 <br>
+    <input type="text" id = "year" placeholder="년">
+    <select name='month' size='1'>
+        <option value='' selected>월</option>
+        <option value='1'>1월</option>
+        <option value='2'>2월</option>
+        <option value='3'>3월</option>
+        <option value='4'>4월</option>
+        <option value='5'>5월</option>
+        <option value='6'>6월</option>
+        <option value='7'>7월</option>
+        <option value='8'>8월</option>
+        <option value='9'>9월</option>
+        <option value='10'>10월</option>
+        <option value='11'>11월</option>
+        <option value='12'>12월</option>
+    </select>
+    <select name='day' size='1'>
+        <option value='' selected>일</option>
+        <option value='1'>1일</option>
+        <option value='2'>2일</option>
+        <option value='3'>3일</option>
+        <option value='4'>4일</option>
+        <option value='5'>5일</option>
+        <option value='6'>6일</option>
+        <option value='7'>7일</option>
+        <option value='8'>8일</option>
+        <option value='9'>9일</option>
+        <option value='10'>10일</option>
+        <option value='11'>11일</option>
+        <option value='12'>12일</option>
+        <option value='13'>13일</option>
+        <option value='14'>14일</option>
+        <option value='15'>15일</option>
+        <option value='16'>16일</option>
+        <option value='17'>17일</option>
+        <option value='18'>18일</option>
+        <option value='19'>19일</option>
+        <option value='20'>20일</option>
+        <option value='21'>21일</option>
+        <option value='22'>22일</option>
+        <option value='23'>23일</option>
+        <option value='24'>24일</option>
+        <option value='25'>25일</option>
+        <option value='26'>26일</option>
+        <option value='27'>27일</option>
+        <option value='28'>28일</option>
+        <option value='29'>29일</option>
+        <option value='30'>30일</option>
+        <option value='31'>31일</option>
+    </select><br>
+    성별<br>
+    <select name='fruits' size='1'>
+        <option value='' selected>성별</option>
+        <option value='남자'>남자</option>
+        <option value='남자'>여자</option>
+  </select><br>
+  본인확인 힌트<br>
+  <select name='question' size='1'>
+      <option value='' selected>질문</option>
+      <option value=''>가장 존경하는 인물은?</option>
+      <option value=''>태어난 지역은?</option>
+      <option value=''>기억에 남는 여행지는?</option>
+      <option value=''>유치원때 꿈은?</option>
+      <option value=''>좋아하는 색상은?</option>
+  </select><br>
+  답
+  <input type="text" placeholder="아이디"><br><br>
+  <input type="submit" id ="submit"><br>
+</fieldset>
+</form>
+  </body>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+
+  $(function(){
+       $("#alert-success").hide();//처음엔 경고글 숨기기
+       $("#alert-danger").hide();
+       $("input").keyup(function(){
+           var pwd1=$("#pwd1").val();
+           var pwd2=$("#pwd2").val();
+           if(pwd1 != "" || pwd2 != ""){ //비교
+               if(pwd1 == pwd2){
+                   $("#alert-success").show(); //일치하면 보여준다.
+                   $("#alert-danger").hide();
+                   $("#submit").removeAttr("disabled");
+               }else{
+                   $("#alert-success").hide();
+                   $("#alert-danger").show();
+                   $("#submit").attr("disabled", "disabled");
+               }
+           }
+       });
+   });
+
+    var id = $("#name").val();
+    var pw1 = $("#pwd1").val();
+    var pw2 = $("#pwd2").val();
+    var name = $("#name").val();
+    var year = $("#year").val();
+    var result = id + pw1 + pw2 +name + year
+    console.log(result)
+
+
+
+  </script>
+</html>

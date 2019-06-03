@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- page1. flight, aircraft join list + button2-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+
+  <input type="button" id="drawGraphBtn" value="그리기">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <div id="chart_div"></div>
+
+
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+var arr;
+  // var dog = Math.floor(Math.random() * 11)
+  // var cat = Math.floor(Math.random() * 11)
+  // var cow = Math.floor(Math.random() * 11)
+  $("#drawGraphBtn").click(function() {
+    arr = [];
+    for(let a= 0; a<=10;a++){
+    arr.push([a, Math.floor(Math.random() * 11) , Math.floor(Math.random() * 11) , Math.floor(Math.random() * 11)])
+    }
+
+    // arr = [
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow],
+    //   [0, dog, cat, cow]
+    // ];
+    google.charts.load('current', {
+      packages: ['corechart', 'line']
+    });
+    google.charts.setOnLoadCallback(drawCurveTypes);
+  })
+
+  function drawCurveTypes() {
+    var data = new google.visualization.DataTable();
+    data.addColumn('number', 'X');
+    data.addColumn('number', 'Dogs');
+    data.addColumn('number', 'Cats');
+    data.addColumn('number', 'Cows');
+
+    data.addRows(arr);
+
+    var options = {
+      hAxis: {
+        title: 'Time'
+      },
+      vAxis: {
+        title: 'Popularity'
+      },
+      series: {
+        1: {
+          curveType: 'function'
+        }
+      }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+  //------------------------그리기 버튼 클릭시 x축이 0~10까지 dog, cat, cow의 값을 0~10 사이의 랜덤한 숫자로 그래프를 그리세요 Math.random() : 0~0.999999랜덤으로 생성
+</script>
+
+</html>

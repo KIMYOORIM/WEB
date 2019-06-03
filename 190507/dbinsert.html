@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>뉴스 삽입하기</title>
+  </head>
+  <body>
+    제목 : <input type = "text" id = "text1"><br>
+    내용 : <input type = "text" id = "text2"><br>
+    <input type="button" value="입력" id="testBtn">
+    <input type="button" value="전체삭제" id="testBtn2">
+    <br><span id="result"></span>
+
+  </body>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+
+
+  function deleteOneNews(no){
+    $.ajax({
+    url: `/deleteNewsWithNo`,
+    data: {
+      no:no
+    },
+    success: function(rep) {
+      location.href = "/newinsert0521";
+    }
+  });
+  }
+
+
+      $.ajax({
+        url: `/newList`,
+        data: {
+        },
+        success: function(rep) {
+          $("#result").html("");
+
+          }
+      });
+
+
+      $("#testBtn").click(function() {
+        $.ajax({
+          url: `/newinsert0521`,
+          type : 'POST',
+          data: {
+          title : $("#text1").val(),
+          text : $("#text2").val()
+          },
+          success: function(rep) {
+            for(var i = 0; i < rep.length;i++){
+            $("#result").append(`${rep[i].title} : ${rep[i].text} <input type = "button" value = "삭제" onclick = "deleteOneNews(${rep[i].no})"> <br>`);
+          console.log(rep)
+          }
+        }
+      })
+});
+
+
+
+      $("#testBtn2").click(function() {
+        $.ajax({
+          url: `/newsDeleteForm`,
+          type : 'POST',
+          data: {
+          },
+          success: function(rep) {
+          $("#result").html(rep)
+          location.href = "/newinsert0521";
+          }
+        });
+      })
+
+  </script>
+
+</html>

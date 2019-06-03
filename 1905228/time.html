@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <span id=""></span>
+  <input type="text" id="timeout">
+  <input type="button" id="btn1" value="배수증가">
+  <input type="button" id="btn2" value="타이머시작">
+  <input type="button" id="btn3" value="타이머종료">
+  <span id="timer"></span><br>
+  <span id="double"></span>
+
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript"></script>
+<script>
+//---------배수증가버튼 클릭 3초후 아래로 입력한 숫자의 배수씩 증가하며 출력---------
+
+  var num2 = "" ;
+  $('#btn1').click(function() {
+    var cnt = 1;
+      setTimeout(function() {
+        setInterval(function() {
+          var num = $('#timeout').val();
+         num2 = num2 + num * cnt  + "<br>"  //문자열이니까 아래로 붙는 개념 더해주는게 아니야
+         cnt++;
+          $('#double').html(num2);
+        }, 1000)
+      }, 3000)
+    });
+
+//---------타이머시작 버튼 클릭 3초후 버튼 옆에 1초에 1씩 증가하는 숫차출력----------
+//---------타이머 종료 버튼 클릭 3초 후 타이머 종료--------------------------------
+
+  var cnt = 1;
+  $('#btn2').click(function() {
+  setTimeout(function() { //var time을 인식할 수 있는 위치에 넣어주세요
+    var time = setInterval(function() {
+        $("#timer").html(cnt);
+        cnt++;
+    }, 1000);
+    $('#btn3').click(function() {
+      setTimeout(function(){
+      clearInterval(time);
+    }, 3000)
+    })
+  }, 3000)
+
+})
+
+
+
+
+
+</script>
+</html>

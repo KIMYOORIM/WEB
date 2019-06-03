@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="button" value="ajax" id="ajax">
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+  $("#ajax").click(function() {
+    setInterval(function() {
+    $.ajax({
+      url: `/requestTest`,
+      data: {},
+      success: function(res) {
+      }
+      }, 1000);
+    });
+  });
+  //---------타이머시작 버튼 클릭 3초후 버튼 옆에 1초에 1씩 증가하는 숫차출력----------
+
+</script>
+</html>

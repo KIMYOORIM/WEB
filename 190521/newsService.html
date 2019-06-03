@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>뉴스 삽입하기</title>
+</head>
+
+<body>
+  제목 : <input type="text" id="title"><br> 내용 : <input type="text" id="text"><br>
+  작성자 : <input type="text" id="writer"><br>
+  <input type="button" value="입력" id="insertBtn">
+  <input type="button" value="전체삭제" id="deleteBtn">
+  <br><span id="result"></span>
+
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+  //==========================================select==================================================
+  $.ajax({
+    url: `/getNewsList`,
+    type: 'get',
+    data: {
+    },
+    success: function(rep) {
+      for (var i = 0; i < rep.length; i++) {
+        $("#result").append(`${rep[i].title} : ${rep[i].text} : ${rep[i].writer}
+          <input type = "button" value = "삭제" onclick = "deleteOneNews(${rep[i].no})">
+          <input type = "button" value = "수정" onclick = "modifyOneNews(${rep[i].no})"> <br>`);
+        console.log(rep)
+      }
+    }
+  });
+
+  //==============================================insert=============================================
+  $("#insertBtn").click(function() {
+    $.ajax({
+      url: `/insertNewsList`,
+      type: 'POST',
+      data: {
+        title: $("#title").val(),
+        text: $("#text").val(),
+        writer : $("#writer").val()
+      },
+      success: function(rep) {
+        location.href = "/form";
+      }
+    })
+  });
+  //==============================================delete=============================================
+
+  $("#deleteBtn").click(function() {
+    $.ajax({
+      url: `/deleteNewsList`,
+      type: 'POST',
+      data: {},
+      success: function(rep) {
+        $("#result").html(rep)
+        location.href = "/form";
+      }
+    })
+  })
+
+  //==============================================no별 delete=============================================
+
+  function deleteOneNews(no) {
+    $.ajax({
+      url: `/deleteNewsWithNo`,
+      data: {
+        no: no
+      },
+      success: function(rep) {
+        location.href = "/form";
+      }
+    });
+  }
+
+  //=============================================modify============================================
+
+  function modifyOneNews(no) {
+    location.href = `/modifyForm?${no}`;
+  }
+
+
+</script>
+
+</html>

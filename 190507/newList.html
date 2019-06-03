@@ -1,0 +1,34 @@
+<!-- 조회 -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <input type="button" value="뉴스불러오기" id="testBtn">
+  <input type="button" value="글쓰기" id="testBtn2">
+  <br><span id="result"></span>
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+  $("#testBtn").click(function() {
+
+    $.ajax({
+      url: `/newList`,
+      data: {},
+      success: function(rep) {
+
+        $("#result").html(rep)
+        console.log(rep)
+      }
+    });
+  })
+  $("#testBtn2").click(function() {
+    location.href = "/insert";
+  });
+</script>
+
+</html>

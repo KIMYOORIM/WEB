@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- page1. flight, aircraft join list + button2-->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  편명 / 항공기명 / 좌석수 / 출발지 / 목적지 / 출발시각 / 도착시각
+  <br>
+  <span id="mergelist"></span><br><br>
+  <input type="button" value="항공편입력" id="insertflight">
+  <input type="button" value="항공기입력" id="insertaircraft">
+
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+  $("#insertflight").click(function() {
+    location.href = "/flight2";
+  });
+  $("#insertaircraft").click(function() {
+    location.href = "/flight3";
+  });
+//--------------------------------------데이터합치기---------------------------------------------
+$.ajax({
+  url: `/mergelist`,
+  type: 'get',
+  data: {
+  },
+  success: function(rep) {
+    for (var i = 0; i < rep.length; i++) {
+      $("#mergelist").append(`${rep[i].flightName} / ${rep[i].aircraftCode} / ${rep[i].departure} / ${rep[i].arrival}
+        / ${rep[i].departTime} / ${rep[i].arrivalTime} / ${rep[i].aircraftName} / ${rep[i].seats} <br>`);
+      console.log(rep)
+    }
+  }
+});
+</script>
+
+</html>

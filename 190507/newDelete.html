@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>뉴스 삭제하기</title>
+</head>
+
+<body>
+  <input type="button" value="전체삭제" id="testBtn">
+  <input type="button" value="돌아가기" id="testBtn2">
+</body>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript">
+function deleteOneNews(no){
+  $.ajax({
+  url: `/deleteNewsWithNo`,
+  data: {
+    no:no
+  },
+  success: function(rep) {
+    location.href = "/newList";
+  }
+});
+}
+
+    $.ajax({
+      url: `/newList`,
+      data: {
+      },
+      success: function(rep) {
+        $("#result").html("");
+
+        for(var i = 0; i < rep.length;i++){
+          $("#result").append(`${rep[i].title} : ${rep[i].text} kjujkjkjkjkjk<input type = "button" value = "삭제" onclick = "deleteOneNews(${rep[i].no})"> <br>`);
+        }
+      }
+    });
+
+</script>
+
+</html>
